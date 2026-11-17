@@ -8,9 +8,9 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-24 pb-12 sm:pt-28 sm:pb-16 flex items-center bg-[#FAF8FF] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Text Content & CTA Buttons - Strictly Left Aligned */}
-          <div className="md:col-span-7 lg:col-span-7 flex flex-col items-start text-left">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+          {/* Left Column (Desktop) / Bottom Column (Mobile): Text Content & CTA Buttons */}
+          <div className="order-2 md:order-1 md:col-span-7 lg:col-span-7 flex flex-col items-start text-left">
             <Typography
               variant="body1"
               sx={{
@@ -161,8 +161,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Profile Photo */}
-          <div className="md:col-span-5 lg:col-span-5 flex justify-center">
+          {/* Right Column (Desktop) / Top Column (Mobile): Profile Photo */}
+          <div className="order-1 md:order-2 md:col-span-5 lg:col-span-5 flex justify-center">
             <div className="relative flex items-center justify-center">
               {/* Outer Glow Ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#C4B5FD] to-[#7952B3] opacity-20 blur-md transform scale-100 sm:scale-105 animate-pulse"></div>
