@@ -159,3 +159,56 @@ a:hover {
   border-color: var(--border-color) !important;
 }
 
+/* ===================================
+   HERO RESPONSIVE IMAGE & TEXT LAYOUT
+   Mobile (< 768px): Profile Image at Top (Order 1) | Text at Bottom (Order 2, Center Aligned)
+   Desktop (>= 768px): Text on Left (Order 1, Left Aligned) | Profile Image on Right (Order 2)
+   =================================== */
+@media (max-width: 767.98px) {
+  .hero-responsive-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .hero-profile-container {
+    order: 1 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hero-content-container {
+    order: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-responsive-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .hero-content-container {
+    order: 1 !important;
+    width: 58% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  .hero-profile-container {
+    order: 2 !important;
+    width: 42% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+

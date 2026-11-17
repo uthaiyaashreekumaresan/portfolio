@@ -8,9 +8,9 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-24 pb-12 sm:pt-28 sm:pb-16 flex items-center bg-[#FAF8FF] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="hero-responsive-container flex flex-col md:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* Text Content Column: Bottom on Mobile (order-2), Left on Desktop (md:order-1) */}
-          <div className="order-2 md:order-1 md:col-span-7 lg:col-span-7 flex flex-col items-center text-center md:items-start md:text-left">
+          <div className="hero-content-container order-2 md:order-1 flex flex-col items-center text-center md:items-start md:text-left">
             <Typography
               variant="body1"
               sx={{
@@ -162,7 +162,7 @@ const Hero = () => {
           </div>
 
           {/* Profile Photo Column: Top on Mobile (order-1), Right on Desktop (md:order-2) */}
-          <div className="order-1 md:order-2 md:col-span-5 lg:col-span-5 flex justify-center mb-6 md:mb-0">
+          <div className="hero-profile-container order-1 md:order-2 flex justify-center mb-6 md:mb-0">
             <div className="relative flex items-center justify-center">
               {/* Outer Glow Ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#C4B5FD] to-[#7952B3] opacity-20 blur-md transform scale-100 sm:scale-105 animate-pulse"></div>
