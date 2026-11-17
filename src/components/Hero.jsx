@@ -8,9 +8,9 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-24 pb-12 sm:pt-28 sm:pb-16 flex items-center bg-[#FAF8FF] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
-          {/* Left Column (Desktop) / Bottom Column (Mobile): Text Content & CTA Buttons */}
-          <div className="order-2 md:order-1 md:col-span-7 lg:col-span-7 flex flex-col items-start text-left">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Text Content Column: Bottom on Mobile (order-2), Left on Desktop (md:order-1) */}
+          <div className="order-2 md:order-1 md:col-span-7 lg:col-span-7 flex flex-col items-center text-center md:items-start md:text-left">
             <Typography
               variant="body1"
               sx={{
@@ -18,7 +18,7 @@ const Hero = () => {
                 color: '#4C327A',
                 fontWeight: 600,
                 mb: 0.5,
-                textAlign: 'left',
+                textAlign: { xs: 'center', md: 'left' },
                 width: '100%',
                 textShadow: 'none',
               }}
@@ -34,7 +34,7 @@ const Hero = () => {
                 color: '#30234A',
                 lineHeight: { xs: 1.18, sm: 1.15 },
                 mb: 1.5,
-                textAlign: 'left',
+                textAlign: { xs: 'center', md: 'left' },
                 width: '100%',
                 letterSpacing: '-0.02em',
                 wordBreak: 'break-word',
@@ -51,7 +51,7 @@ const Hero = () => {
                 fontWeight: 700,
                 color: '#000000',
                 mb: 2,
-                textAlign: 'left',
+                textAlign: { xs: 'center', md: 'left' },
                 width: '100%',
                 letterSpacing: '-0.01em',
                 textShadow: 'none',
@@ -68,9 +68,9 @@ const Hero = () => {
                 fontWeight: 450,
                 lineHeight: { xs: 1.7, sm: 1.8 },
                 maxWidth: '600px',
-                mx: 0,
+                mx: { xs: 'auto', md: 0 },
                 mb: 3.5,
-                textAlign: 'left',
+                textAlign: { xs: 'center', md: 'left' },
                 width: '100%',
                 textShadow: 'none',
               }}
@@ -79,7 +79,7 @@ const Hero = () => {
             </Typography>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-start gap-3 sm:gap-4 w-full">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4 w-full">
               <Button
                 variant="contained"
                 href="#projects"
@@ -161,14 +161,14 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column (Desktop) / Top Column (Mobile): Profile Photo */}
-          <div className="order-1 md:order-2 md:col-span-5 lg:col-span-5 flex justify-center">
+          {/* Profile Photo Column: Top on Mobile (order-1), Right on Desktop (md:order-2) */}
+          <div className="order-1 md:order-2 md:col-span-5 lg:col-span-5 flex justify-center mb-6 md:mb-0">
             <div className="relative flex items-center justify-center">
               {/* Outer Glow Ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#C4B5FD] to-[#7952B3] opacity-20 blur-md transform scale-100 sm:scale-105 animate-pulse"></div>
 
               {/* Profile Photo Circle */}
-              <div className="relative w-[220px] h-[220px] xs:w-[260px] xs:h-[260px] sm:w-[300px] sm:h-[300px] md:w-[350px] md:h-[350px] lg:w-[380px] lg:h-[380px] max-w-[76vw] max-h-[76vw] rounded-full overflow-hidden border-4 sm:border-[5px] border-white shadow-[0_16px_40px_rgba(76,50,122,0.16)] bg-[#F0EAFE] transition-transform duration-500 hover:scale-[1.03]">
+              <div className="relative w-[210px] h-[210px] xs:w-[250px] xs:h-[250px] sm:w-[290px] sm:h-[290px] md:w-[350px] md:h-[350px] lg:w-[380px] lg:h-[380px] max-w-[76vw] max-h-[76vw] rounded-full overflow-hidden border-4 sm:border-[5px] border-white shadow-[0_16px_40px_rgba(76,50,122,0.16)] bg-[#F0EAFE] transition-transform duration-500 hover:scale-[1.03]">
                 <img
                   src="images/WhatsApp Image 2026-09-22 at 17.50.15.jpeg"
                   alt="Uthaiyaa Shree K – BCA Graduate and Aspiring Full Stack Web Developer"
