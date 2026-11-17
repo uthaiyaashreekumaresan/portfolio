@@ -1,376 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uthaiyaa Shree — Resume</title>
-    <!-- Importing Poppins Font from Google Fonts for a modern look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ── Reset & Base ─────────────────────────────────── */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        @page {
-            size: A4;
-            margin: 0;
-        }
-
-        html {
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-
-        body {
-            /* Changed Font to Poppins */
-            font-family: 'Poppins', Arial, sans-serif;
-            font-size: 10pt;
-            line-height: 1.5;
-            color: #2c3e50;
-            background: #f0f2f5;
-        }
-
-        /* ── Page Container (A4) ──────────────────────────── */
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            max-height: 297mm;
-            margin: 0 auto;
-            padding: 22mm 20mm 18mm 20mm;
-            background: #ffffff;
-            overflow: hidden;
-        }
-
-        @media print {
-            body {
-                background: #ffffff;
-            }
-            .page {
-                margin: 0;
-                padding: 18mm 18mm 16mm 18mm;
-                box-shadow: none;
-            }
-        }
-
-        @media screen {
-            .page {
-                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-        }
-
-        /* ── Header / Name ────────────────────────────────── */
-        .header {
-            text-align: center;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #1a5276; /* Dark Blue */
-            margin-bottom: 14px;
-        }
-
-        .header h1 {
-            font-size: 24pt;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #1a5276; /* Added Blue Color */
-            margin-bottom: 4px;
-        }
-
-        .contact-info {
-            font-size: 9.5pt;
-            color: #34495e;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        .contact-info span {
-            display: inline;
-        }
-
-        .contact-info .separator {
-            margin: 0 10px;
-            color: #bdc3c7;
-        }
-
-        /* ── Section Styling ──────────────────────────────── */
-        .section {
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 11.5pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #1a5276; /* Changed to Blue */
-            border-bottom: 1.5px solid #d5dbdb;
-            padding-bottom: 4px;
-            margin-bottom: 8px;
-        }
-
-        /* ── Career Objective ─────────────────────────────── */
-        .objective p {
-            font-size: 10pt;
-            color: #2c3e50;
-            line-height: 1.6;
-            text-align: justify;
-        }
-
-        /* ── Education ────────────────────────────────────── */
-        .edu-item {
-            margin-bottom: 6px;
-        }
-
-        .edu-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-
-        .edu-degree {
-            font-weight: 600;
-            font-size: 10.5pt;
-            color: #2c3e50;
-        }
-
-        .edu-score {
-            font-weight: 600;
-            font-size: 9.5pt;
-            color: #1a5276; /* Highlighted in Blue */
-        }
-
-        .edu-institution {
-            font-size: 9.5pt;
-            color: #5d6d7e;
-            font-style: italic;
-        }
-
-        /* ── Skills ───────────────────────────────────────── */
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-size: 9.5pt;
-        }
-
-        .skills-list span {
-            display: inline-block;
-            padding: 4px 14px;
-            border: 1px solid #aed6f1;
-            border-radius: 4px;
-            font-weight: 500;
-            color: #1a5276; /* Blue text */
-            background: #ebf5fb; /* Light blue background */
-        }
-
-        /* ── Projects ─────────────────────────────────────── */
-        .project {
-            margin-bottom: 10px;
-        }
-
-        .project-title {
-            font-weight: 600;
-            font-size: 10.5pt;
-            color: #2c3e50;
-        }
-
-        .project-type {
-            font-weight: 500;
-            font-size: 9pt;
-            color: #7f8c8d;
-            margin-left: 6px;
-        }
-
-        .project-tech {
-            font-size: 9.5pt;
-            color: #1a5276;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-
-        .project ul {
-            list-style: disc;
-            padding-left: 20px;
-            font-size: 9.5pt;
-            color: #34495e;
-        }
-
-        .project ul li {
-            margin-bottom: 3px;
-            line-height: 1.5;
-        }
-
-        /* ── Strengths ────────────────────────────────────── */
-        .strengths-list {
-            list-style: disc;
-            padding-left: 20px;
-            font-size: 9.5pt;
-            color: #34495e;
-            columns: 2;
-            column-gap: 40px;
-        }
-
-        .strengths-list li {
-            margin-bottom: 4px;
-            line-height: 1.5;
-        }
-
-        /* ── Additional Info ──────────────────────────────── */
-        .additional-table {
-            font-size: 9.5pt;
-            color: #34495e;
-        }
-
-        .additional-table .row {
-            display: flex;
-            margin-bottom: 4px;
-        }
-
-        .additional-table .label {
-            font-weight: 600;
-            min-width: 150px;
-            color: #2c3e50;
-        }
-
-        .additional-table .value {
-            color: #34495e;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uthaiyaa Shree - ATS Resume</title>
+<style>
+  @page { size: A4; margin: 16mm 17mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #202124; font-size: 10pt; line-height: 1.42; background: #fff; }
+  main { max-width: 800px; margin: 0 auto; padding: 26px 34px; }
+  header { text-align: center; border-bottom: 2px solid #243b53; padding-bottom: 12px; margin-bottom: 15px; }
+  h1 { margin: 0 0 6px; color: #243b53; font-size: 22pt; letter-spacing: .5px; }
+  .contact { font-size: 9pt; line-height: 1.6; overflow-wrap: anywhere; }
+  a { color: #202124; text-decoration: none; }
+  section { margin: 0 0 13px; }
+  h2 { color: #243b53; font-size: 11pt; margin: 0 0 6px; padding-bottom: 3px; border-bottom: 1px solid #aab7c4; letter-spacing: .45px; }
+  p { margin: 0 0 5px; }
+  ul { margin: 3px 0 0 17px; padding: 0; }
+  li { margin: 0 0 3px; }
+  .entry { margin-bottom: 7px; }
+  .entry-head { font-weight: bold; }
+  .meta { color: #454f5b; }
+  .label { font-weight: bold; }
+  @media print { main { padding: 0; max-width: none; } a { color: #202124; } }
+</style>
 </head>
 <body>
-    <div class="page">
-
-        <!-- ═══ HEADER ═══ -->
-        <div class="header">
-            <h1>Uthaiyaa Shree</h1>
-            <div class="contact-info">
-                <span>uthaiyaashreekumerasan@gmail.com</span>
-                <span class="separator">|</span>
-                <span>+91 9360321548</span>
-                <span class="separator">|</span>
-                <span>Tamil Nadu, India</span>
-            </div>
-        </div>
-
-        <!-- ═══ CAREER OBJECTIVE ═══ -->
-        <div class="section objective">
-            <div class="section-title">Career Objective</div>
-            <p>
-                Detail-oriented and motivated BCA graduate with a solid foundation in web development, 
-                database management, and front-end technologies. Seeking an entry-level opportunity in 
-                IT or software development where I can apply my technical skills, contribute to 
-                meaningful projects, and grow as a professional in a dynamic work environment.
-            </p>
-        </div>
-
-        <!-- ═══ EDUCATION ═══ -->
-        <div class="section">
-            <div class="section-title">Education</div>
-
-            <div class="edu-item">
-                <div class="edu-row">
-                    <span class="edu-degree">Bachelor of Computer Applications (BCA)</span>
-                    <span class="edu-score">Percentage: 85%</span>
-                </div>
-                <div class="edu-institution">Mother Terasa College of Arts &amp; Science, Pudukkottai, Tamil Nadu, India</div>
-            </div>
-
-            <div class="edu-item">
-                <div class="edu-row">
-                    <span class="edu-degree">Higher Secondary / Senior Secondary Education</span>
-                    <span class="edu-score">Percentage: 80%</span>
-                </div>
-                <div class="edu-institution">Mother Terasa Matric Hr Secondary School, Pudukkottai, Tamil Nadu, India</div>
-            </div>
-        </div>
-
-        <!-- ═══ TECHNICAL SKILLS ═══ -->
-        <div class="section">
-            <div class="section-title">Technical Skills</div>
-            <div class="skills-list">
-                <span>HTML5</span>
-                <span>CSS3</span>
-                <span>JavaScript</span>
-                <span>SQL</span>
-                <span>GitHub</span> <!-- ADDED GITHUB -->
-                <span>Responsive Design</span>
-                <span>MS Word</span>
-                <span>MS Excel</span>
-            </div>
-        </div>
-
-        <!-- ═══ PROJECTS ═══ -->
-        <div class="section">
-            <div class="section-title">Projects</div>
-
-            <div class="project">
-                <div>
-                    <span class="project-title">Spice Garden — Responsive Restaurant Website</span>
-                    <span class="project-type">| Academic Project</span>
-                </div>
-                <div class="project-tech">Technologies: HTML5, CSS3 (Flexbox, Grid, Animations)</div>
-                <ul>
-                    <li>Designed and developed a fully responsive, multi-page restaurant website for a fictional restaurant "Spice Garden."</li>
-                    <li>Implemented modern CSS layout techniques including Flexbox and CSS Grid for a clean, structured design across all screen sizes.</li>
-                    <li>Created smooth CSS animations and transitions to enhance user experience and visual appeal.</li>
-                    <li>Built multiple HTML pages including Home, Menu, About, and Contact sections with consistent navigation.</li>
-                    <li>Ensured cross-browser compatibility and mobile-first responsive design principles.</li>
-                </ul>
-            </div>
-
-            <div class="project">
-                <div>
-                    <span class="project-title">Student Record Management System</span>
-                    <span class="project-type">| Academic Project</span>
-                </div>
-                <div class="project-tech">Technologies: HTML5, CSS3, JavaScript, SQL</div>
-                <ul>
-                    <li>Developed a web-based application to manage student records including enrollment details, grades, and attendance.</li>
-                    <li>Designed an intuitive front-end interface using HTML and CSS for data entry and display.</li>
-                    <li>Used JavaScript for client-side form validation and dynamic content rendering.</li>
-                    <li>Wrote SQL queries to create, read, update, and delete student records in a relational database.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ═══ STRENGTHS ═══ -->
-        <div class="section">
-            <div class="section-title">Strengths</div>
-            <ul class="strengths-list">
-                <li>Quick Learner</li>
-                <li>Strong Analytical Thinking</li>
-                <li>Good Team Collaboration</li>
-                <li>Effective Time Management</li>
-                <li>Attention to Detail</li>
-                <li>Adaptable and Self-Motivated</li>
-            </ul>
-        </div>
-
-        <!-- ═══ ADDITIONAL INFORMATION ═══ -->
-        <div class="section">
-            <div class="section-title">Additional Information</div>
-            <div class="additional-table">
-                <div class="row">
-                    <span class="label">Languages Known:</span>
-                    <span class="value">Tamil, English</span>
-                </div>
-                <div class="row">
-                    <span class="label">Hobbies:</span>
-                    <span class="value">Exploring new technologies, problem-solving, reading tech blogs</span>
-                </div>
-                <div class="row">
-                    <span class="label">Declaration:</span>
-                    <span class="value">I hereby declare that the above information is true to the best of my knowledge.</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
+<main>
+<header>
+  <h1>UTHAIYAA SHREE</h1>
+  <div class="headline">MERN Stack Developer &nbsp; | &nbsp; Full Stack Developer &nbsp; | &nbsp; React Developer</div>
+  <div class="contact">
+    uthaiyaashreekumaresan@gmail.com | +91 9360321548 | Tamil Nadu, India<br>
+    LinkedIn: <a href="https://www.linkedin.com/in/uthaiyaa-shree-2b073a439/">https://www.linkedin.com/in/uthaiyaa-shree-2b073a439/</a><br>
+    GitHub: <a href="https://github.com/uthaiyaashreekumaresan">https://github.com/uthaiyaashreekumaresan</a>
+  </div>
+</header>
+<section>
+  <h2>CAREER OBJECTIVE</h2>
+  <p>BCA graduate and Full Stack Web Development – MERN with AI course completer with a foundation in frontend development, backend technologies, databases, and AI-assisted development tools. Seeking an entry-level Full Stack Developer / MERN Stack Developer opportunity to apply technical knowledge, contribute to web application projects, and continue developing practical software skills.</p>
+</section>
+<section><h2>EDUCATION</h2><div class="entry"><p><span class="entry-head">Bachelor of Computer Applications (BCA)</span> <span class="meta">| 85%</span></p><p>Mother Terasa College of Arts &amp; Science, Pudukkottai, Tamil Nadu</p></div><div class="entry"><p><span class="entry-head">Higher Secondary Education</span> <span class="meta">| 80%</span></p><p>Mother Terasa Matric Hr. Secondary School, Pudukkottai, Tamil Nadu</p></div></section><section><h2>PROFESSIONAL TRAINING</h2><div class="entry"><p><span class="entry-head">Full Stack Web Development – MERN with AI</span> <span class="meta">| Completed</span></p><p>UK Info Tech | Course duration: 6 months</p></div></section><section><h2>TECHNICAL SKILLS</h2><p><span class="label">Frontend:</span> HTML5, CSS3, JavaScript, TypeScript, React, Bootstrap, Tailwind CSS, Material UI</p><p><span class="label">State Management:</span> Redux</p><p><span class="label">Backend:</span> Node.js</p><p><span class="label">Databases:</span> MongoDB, PostgreSQL, SQL</p><p><span class="label">API &amp; Development Tools:</span> Postman API, GitHub</p><p><span class="label">Deployment &amp; Productivity:</span> Netlify, Notion</p></section><section><h2>AI TOOLS &amp; INTEGRATIONS</h2><p><span class="label">AI Coding Assistants:</span> GitHub Copilot, OpenAI Codex, Codeium, Tabnine, Antigravity, Claude</p><p><span class="label">AI APIs &amp; Platforms:</span> ChatGPT, Gemini, Hugging Face, LangChain</p><p><span class="label">Frontend &amp; UI Tools:</span> v0, Figma AI</p><p><span class="label">Testing &amp; Debugging:</span> BrowserStack</p></section><section><h2>PROJECTS</h2><div class="entry"><p><span class="entry-head">Spice Garden – Responsive Restaurant Website</span> <span class="meta">| Academic Project</span></p><p>Technologies: HTML5, CSS3, Flexbox, CSS Grid, CSS animations and transitions. Designed and developed a responsive multi-page restaurant website with Home, About, Menu, and Contact sections. Applied responsive layouts and consistent navigation for desktop, tablet, and mobile screens.</p></div><div class="entry"><p><span class="entry-head">Student Record Management System</span> <span class="meta">| Academic Project</span></p><p>Technologies: HTML5, CSS3, JavaScript, SQL. Developed a web-based student record interface for enrollment details, grades, and attendance. Implemented client-side form validation and dynamic content rendering with JavaScript, and SQL queries for create, read, update, and delete operations.</p></div></section><section><h2>COURSE PRACTICE &amp; PROFESSIONAL DEVELOPMENT</h2><p><span class="label">Practical Learning:</span> Real-time projects, capstone projects, case studies, weekly tests, and code-solving techniques</p><p><span class="label">Career Preparation:</span> Interview preparation, soft skills training, LinkedIn profile tips, mock interviews, and group discussion practice</p><p><span class="label">Personal Development:</span> Personality development</p></section><section><h2>ADDITIONAL INFORMATION</h2><p><span class="label">Languages:</span> Tamil, English</p><p><span class="label">Interests:</span> Exploring new technologies, problem-solving, and reading technology blogs</p></section>
+</main>
 </body>
 </html>

@@ -2,17 +2,31 @@
    1. ROOT VARIABLES
    =================================== */
 :root {
-    --primary-bg: #0F1923;
-    --white: #1A2733;
-    --text-dark: #E8EAED;
-    --text-muted: #9AA0A6;
-    --accent: #00BFA6;
-    --accent-light: #1DE9B6;
-    --dark: #E8EAED;
-    --border: #2A3A4A;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.25);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* User Color Palette */
+    --main-bg: #FAF8FF;
+    --secondary-bg: #F0EAFE;
+    --primary-purple: #7952B3;
+    --lavender: #C4B5FD;
+    --dark-purple: #4C327A;
+    --heading-color: #30234A;
+    --body-text: #625B71;
+    --card-bg: #FFFFFF;
+    --border-color: #E8DFF5;
+
+    /* Theme Variable Aliases */
+    --primary-bg: var(--main-bg);
+    --white: var(--card-bg);
+    --text-dark: var(--heading-color);
+    --text-muted: var(--body-text);
+    --accent: var(--primary-purple);
+    --accent-light: var(--lavender);
+    --dark: var(--dark-purple);
+    --border: var(--border-color);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(76, 50, 122, 0.06);
+    --shadow-md: 0 8px 24px rgba(76, 50, 122, 0.09);
+    --shadow-lg: 0 16px 36px rgba(76, 50, 122, 0.12);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
@@ -39,7 +53,7 @@ html {
 body {
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--primary-bg);
-    color: var(--text-dark);
+    color: var(--text-muted);
     line-height: 1.7;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -47,7 +61,7 @@ body {
 
 ::selection {
     background-color: var(--accent-light);
-    color: var(--text-dark);
+    color: var(--dark);
 }
 
 img {
@@ -156,7 +170,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-accent {
-    color: var(--accent);
+    color: var(--accent) !important;
+}
+
+.text-dark {
+    color: var(--heading-color) !important;
+}
+
+.text-muted {
+    color: var(--body-text) !important;
 }
 
 /* ===================================
@@ -164,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
    =================================== */
 .btn-accent {
     background-color: var(--accent);
-    color: var(--white);
+    color: #FFFFFF;
     border: 2px solid var(--accent);
     border-radius: var(--radius-sm);
     font-weight: 600;
@@ -176,7 +198,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-accent:focus {
     background-color: var(--dark);
     border-color: var(--dark);
-    color: var(--white);
+    color: #FFFFFF;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -194,13 +216,13 @@ h1, h2, h3, h4, h5, h6 {
 .btn-outline-accent:hover,
 .btn-outline-accent:focus {
     background-color: var(--accent);
-    color: var(--white);
+    color: #FFFFFF;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
 .btn-resume {
-    background-color: rgba(0, 191, 166, 0.1);
+    background-color: rgba(121, 82, 179, 0.1);
     color: var(--accent);
     border: 2px solid var(--accent);
     border-radius: var(--radius-sm);
@@ -214,7 +236,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-resume:hover,
 .btn-resume:focus {
     background-color: var(--accent);
-    color: var(--white);
+    color: #FFFFFF;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -232,16 +254,18 @@ h1, h2, h3, h4, h5, h6 {
    6. NAVBAR
    =================================== */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    background-color: rgba(250, 248, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 16px 0;
-    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid var(--border);
     transition: var(--transition);
     z-index: 1050;
 }
 
 .navbar.scrolled {
     padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.96);
     border-bottom-color: var(--border);
     box-shadow: var(--shadow-sm);
 }
@@ -249,7 +273,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand {
     font-size: 1.35rem;
     font-weight: 700;
-    color: var(--accent) !important;
+    color: var(--heading-color) !important;
     letter-spacing: -0.5px;
 }
 
@@ -299,7 +323,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggler:focus {
-    box-shadow: 0 0 0 3px rgba(180, 123, 69, 0.2);
+    box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.2);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2330234A' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 16px;
+        margin-top: 12px;
+        box-shadow: var(--shadow-md);
+    }
 }
 
 /* ===================================
@@ -325,7 +364,8 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     margin-bottom: 20px;
     padding: 6px 16px;
-    background-color: rgba(180, 123, 69, 0.08);
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border);
     border-radius: 20px;
 }
 
@@ -412,7 +452,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile-hover:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(76, 50, 122, 0.18);
 }
 
 @keyframes decorFloat {
@@ -427,9 +467,9 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid var(--white);
-    box-shadow: none;
+    box-shadow: var(--shadow-lg);
     z-index: 1;
-    background-color: var(--border);
+    background-color: var(--secondary-bg);
 }
 
 .profile-image {
@@ -447,14 +487,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #EDE8E0 0%, #DDD6CC 100%);
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #E8DFF5 100%);
     color: var(--text-muted);
     gap: 8px;
 }
 
 .photo-placeholder i {
     font-size: 4rem;
-    color: var(--accent-light);
+    color: var(--accent);
 }
 
 .photo-placeholder span {
@@ -573,7 +613,8 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(180, 123, 69, 0.08);
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     margin-bottom: 16px;
 }
@@ -655,7 +696,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-marker.active-marker {
     border-color: var(--accent);
-    background-color: rgba(180, 123, 69, 0.05);
+    background-color: var(--secondary-bg);
 }
 
 .timeline-content {
@@ -665,10 +706,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 24px;
     flex: 1;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm);
 }
 
 .timeline-content:hover {
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-light);
 }
 
 .timeline-content h4 {
@@ -679,8 +722,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-institution {
     font-size: 0.95rem;
-    color: var(--text-muted);
+    color: var(--accent);
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .timeline-desc {
@@ -702,26 +746,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .timeline-badge.completed {
-    background-color: rgba(75, 160, 100, 0.1);
-    color: #3d8b56;
+    background-color: rgba(75, 160, 100, 0.12);
+    color: #2e7d32;
+    border: 1px solid rgba(75, 160, 100, 0.25);
 }
 
 .timeline-badge.learning {
-    background-color: rgba(180, 123, 69, 0.1);
+    background-color: var(--secondary-bg);
     color: var(--accent);
+    border: 1px solid var(--border);
 }
 
 /* ===================================
    11. SKILLS SECTION
    =================================== */
 .skill-card {
-    background-color: var(--primary-bg);
+    background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 32px 24px;
     text-align: center;
     transition: var(--transition);
     height: 100%;
+    box-shadow: var(--shadow-sm);
 }
 
 .skill-card:hover {
@@ -737,7 +784,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--white);
+    background-color: var(--secondary-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     margin-bottom: 16px;
@@ -745,7 +792,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-card:hover .skill-icon {
-    background-color: rgba(180, 123, 69, 0.08);
+    background-color: rgba(121, 82, 179, 0.12);
     border-color: var(--accent-light);
 }
 
@@ -828,6 +875,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     position: relative;
+    box-shadow: var(--shadow-sm);
 }
 
 .project-card::after {
@@ -849,13 +897,14 @@ h1, h2, h3, h4, h5, h6 {
 .project-card:hover {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--accent-light);
 }
 
 .project-image-wrapper {
     position: relative;
     height: 180px;
     overflow: hidden;
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-bg);
 }
 
 .project-icon-placeholder {
@@ -865,7 +914,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--white) 100%);
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #E8DFF5 100%);
     gap: 10px;
 }
 
@@ -899,7 +948,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #EDE8E0 0%, #E2DBD1 100%);
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #E8DFF5 100%);
     color: var(--text-muted);
     gap: 8px;
 }
@@ -929,6 +978,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     z-index: 2;
+    border: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
 }
 
@@ -943,7 +993,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 16px;
     left: 16px;
     background-color: var(--accent);
-    color: var(--white);
+    color: #FFFFFF;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -956,7 +1006,7 @@ h1, h2, h3, h4, h5, h6 {
 .project-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(43, 41, 38, 0.15) 0%, transparent 50%);
+    background: linear-gradient(to top, rgba(48, 35, 74, 0.25) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
 }
@@ -1004,9 +1054,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-tag {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    background-color: var(--primary-bg);
+    font-weight: 600;
+    color: var(--dark);
+    background-color: var(--secondary-bg);
     padding: 4px 10px;
     border-radius: 20px;
     border: 1px solid var(--border);
@@ -1041,10 +1091,11 @@ h1, h2, h3, h4, h5, h6 {
    12b. PROJECT MODAL STYLES
    =================================== */
 .project-modal-content {
-    background-color: var(--primary-bg);
+    background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    box-shadow: var(--shadow-lg);
 }
 
 .project-modal-header {
@@ -1054,6 +1105,17 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+}
+
+.project-modal-header .btn-close {
+    filter: none;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.project-modal-header .btn-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
 }
 
 .project-modal-category {
@@ -1081,7 +1143,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     max-height: 300px;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--primary-bg) 0%, var(--white) 100%);
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #E8DFF5 100%);
 }
 
 .project-modal-image {
@@ -1161,7 +1223,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-modal-footer {
-    background-color: var(--white);
+    background-color: var(--secondary-bg);
     border-top: 1px solid var(--border);
     padding: 16px 24px;
 }
@@ -1193,7 +1255,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .journey-step {
-    background-color: var(--primary-bg);
+    background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 28px 24px;
@@ -1202,6 +1264,7 @@ h1, h2, h3, h4, h5, h6 {
     min-width: 180px;
     max-width: 240px;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm);
 }
 
 .journey-step:hover {
@@ -1240,12 +1303,17 @@ h1, h2, h3, h4, h5, h6 {
 /* ===================================
    14. CONTACT SECTION
    =================================== */
+#contact {
+    background-color: var(--secondary-bg);
+}
+
 .contact-info {
     background-color: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 36px;
     height: 100%;
+    box-shadow: var(--shadow-sm);
 }
 
 .contact-info-title {
@@ -1275,7 +1343,8 @@ h1, h2, h3, h4, h5, h6 {
     width: 48px;
     height: 48px;
     min-width: 48px;
-    background-color: rgba(180, 123, 69, 0.08);
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -1310,6 +1379,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 36px;
+    box-shadow: var(--shadow-sm);
 }
 
 .form-label {
@@ -1330,12 +1400,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-control::placeholder {
-    color: #A8A19A;
+    color: #9B94A7;
 }
 
 .form-control:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(180, 123, 69, 0.12);
+    box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.18);
     background-color: var(--white);
 }
 
@@ -1364,9 +1434,9 @@ h1, h2, h3, h4, h5, h6 {
    15. FOOTER
    =================================== */
 .footer-section {
-    background-color: var(--primary-bg);
+    background-color: var(--dark);
     padding: 48px 0 24px;
-    color: rgba(255, 255, 255, 0.9);
+    color: #FAF8FF;
 }
 
 .footer-brand {
@@ -1383,7 +1453,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-tagline {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #E8DFF5;
     margin-bottom: 0;
 }
 
@@ -1399,7 +1469,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-nav a {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: #E8DFF5;
     transition: var(--transition);
 }
 
@@ -1420,8 +1490,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(232, 223, 245, 0.35);
+    color: #FAF8FF;
     transition: var(--transition);
 }
 
@@ -1433,13 +1503,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-divider {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(232, 223, 245, 0.2);
     margin: 28px 0 20px;
 }
 
 .footer-copyright {
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: #E8DFF5;
     margin-bottom: 0;
 }
 
@@ -1455,7 +1525,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     border: none;
     background-color: var(--accent);
-    color: var(--white);
+    color: #FFFFFF;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
@@ -1477,6 +1547,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
     background-color: var(--dark);
+    color: #FFFFFF;
     transform: translateY(-3px);
 }
 
@@ -1861,21 +1932,29 @@ section {
 
 /* Background section alternation */
 .bg-white {
-    background-color: var(--primary-bg) !important;
+    background-color: var(--secondary-bg) !important;
 }
 
 /* Skills Progress Item Styling */
 .skill-progress-item {
     background-color: var(--white);
     padding: 24px;
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .skill-progress-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 191, 166, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(121, 82, 179, 0.16);
+    border-color: var(--accent-light);
+}
+
+.skill-progress-item .progress {
+    background-color: var(--primary-bg) !important;
+    border: 1px solid var(--border);
+    box-shadow: inset 0 1px 3px rgba(76, 50, 122, 0.08) !important;
 }
 
 .skill-progress-item .progress-bar {
@@ -1892,8 +1971,8 @@ section {
 }
 
 .skill-progress-item:hover .skill-percent {
-    transform: scale(1.15) rotate(5deg);
-    color: var(--accent-light) !important;
+    transform: scale(1.15);
+    color: var(--dark) !important;
 }
 
 

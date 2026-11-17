@@ -1,0 +1,161 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   ROOT VARIABLES (Lavender + Purple Palette)
+   =================================== */
+:root {
+  --main-bg: #FAF8FF;
+  --secondary-bg: #F0EAFE;
+  --primary-purple: #7952B3;
+  --lavender: #C4B5FD;
+  --dark-purple: #4C327A;
+  --heading-color: #30234A;
+  --body-text: #625B71;
+  --card-bg: #FFFFFF;
+  --border-color: #E8DFF5;
+
+  --primary-bg: var(--main-bg);
+  --white: var(--card-bg);
+  --text-dark: var(--heading-color);
+  --text-muted: var(--body-text);
+  --accent: var(--primary-purple);
+  --accent-light: var(--lavender);
+  --dark: var(--dark-purple);
+  --border: var(--border-color);
+
+  --shadow-sm: 0 2px 8px rgba(76, 50, 122, 0.06);
+  --shadow-md: 0 8px 24px rgba(76, 50, 122, 0.09);
+  --shadow-lg: 0 16px 36px rgba(76, 50, 122, 0.12);
+  --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--main-bg);
+  color: #382F45;
+  line-height: 1.75;
+  overflow-x: hidden;
+  max-width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Enhanced legibility for body and descriptive text */
+p {
+  color: #382F45;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  color: var(--heading-color);
+  letter-spacing: -0.02em;
+}
+
+/* Sharp contrast enhancement for muted text */
+.text-\[\#625B71\] {
+  color: #382F45 !important;
+}
+
+::selection {
+  background-color: var(--lavender);
+  color: var(--dark-purple);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--dark);
+}
+
+/* Animations */
+@keyframes preloaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes downloadBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(196, 181, 253, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(121, 82, 179, 0.6); }
+}
+
+/* Custom Utilities */
+.section-padding {
+  padding: 100px 0;
+}
+
+@media (max-width: 991.98px) {
+  .section-padding {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .section-padding {
+    padding: 44px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+}
+
+.text-accent {
+  color: var(--primary-purple) !important;
+}
+
+.bg-secondary-theme {
+  background-color: var(--secondary-bg) !important;
+}
+
+.bg-main-theme {
+  background-color: var(--main-bg) !important;
+}
+
+.border-theme {
+  border-color: var(--border-color) !important;
+}
+
